@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hibernate-configuration>
+    <session-factory>
+        <!-- JDBC-Datenbankverbindung -->
+        <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+        <property name="hibernate.connection.url">${db.url}</property>
+        <property name="hibernate.connection.username">${db.user}</property>
+        <property name="hibernate.connection.password">${db.password}</property>
+
+        <!-- Hibernate-Eigenschaften -->
+        <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+        <property name="hibernate.show_sql">true</property>
+        <property name="hibernate.format_sql">true</property>
+        <property name="hibernate.hbm2ddl.auto">update</property> <!-- Automatisches Schema-Update -->
+
+        <!-- Verbindungspool (optional, für mehr Leistung) -->
+        <property name="hibernate.c3p0.min_size">5</property>
+        <property name="hibernate.c3p0.max_size">20</property>
+
+        <!-- Mapping der Produkt-Klasse -->
+        <mapping class="com.example.model.Produkt"/>
+    </session-factory>
+</hibernate-configuration>
